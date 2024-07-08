@@ -25,7 +25,7 @@ public class servo extends LinearOpMode {
             servo.setPower(1);
         }
     }
-
+    //testing everytioasdfkhasdf
     //testing push
     //testing push clone
 }
