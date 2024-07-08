@@ -1,28 +1,31 @@
 package org.firstinspires.ftc.teamcode.OpModes;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.CRServo;
 
-public class servo extends OpMode{
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+
+@TeleOp
+public class servo extends LinearOpMode {
     public CRServo servo;
 
     @Override
-    public void init() {
-        servo = hardwareMap.get(CRServo.class, "servo");
+    public void runOpMode() throws InterruptedException {
 
-    }
+        servo = hardwareMap.get(CRServo.class, "test");
+        servo.setDirection(DcMotorSimple.Direction.REVERSE);
+        waitForStart();
 
-    @Override
-    public void loop() {
-        if(gamepad1.a){
+        if (isStopRequested()) return;
+
+        while(opModeIsActive()){
             servo.setPower(1);
         }
-        if(gamepad1.b){
-            servo.setPower(-1);
-        }
-        servo.setPower(0);
-
     }
+
 
     //testing push clone
 }
