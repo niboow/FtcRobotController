@@ -18,33 +18,24 @@ public class servo extends LinearOpMode {
         waitForStart();
         if (isStopRequested()) return;
         while(opModeIsActive()){
-            servo.setPower(0.5);
-
-//            double time_curr = System.currentTimeMillis();
-//            double time_new = 0;
-//            while(time_curr < )
-
+            double i = System.currentTimeMillis();
+            while (i < 1000 ) {
+                servo.setPower(0.5);
+            }
+            pause(500);
+            System.out.println(i);
             servo.setDirection(DcMotorSimple.Direction.FORWARD);
-
-//            servo.setPower(-1);
+            while (System.currentTimeMillis() < 1000 ) {
+                servo.setPower(0.5);
+            }
         }
     }
 
     public void pause (double milliseconds) {
         start = System.currentTimeMillis();
         while (System.currentTimeMillis() - start < milliseconds && opModeIsActive()) {
-            servo.update();
+            servo.setPower(0);
         }
     }
 
-    public void update() {
-        START_LOOP();
-        Globals.gotBloodyAnnihilated = System.currentTimeMillis() - Globals.autoStartTime > 29500 && Globals.autoStartTime != -1 && deposit.slides.length > 1;
-        updateSubsystems();
-        updateTelemetry();
-    }
-
-    //testing everytioasdfkhasdf
-    //testing push
-    //testing push clone
 }
