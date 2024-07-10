@@ -13,14 +13,19 @@ public class servo extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         servo = hardwareMap.get(CRServo.class, "test");
-        servo.setDirection(DcMotorSimple.Direction.FORWARD);
+        servo.setDirection(DcMotorSimple.Direction.REVERSE);
         waitForStart();
         if (isStopRequested()) return;
         while(opModeIsActive()){
-            servo.setPower(1);
-            //servo.wait(2, 5);
-            servo.setDirection(DcMotorSimple.Direction.REVERSE);
-            servo.setPower(-1);
+            servo.setPower(0.5);
+
+//            double time_curr = System.currentTimeMillis();
+//            double time_new = 0;
+//            while(time_curr < )
+
+            servo.setDirection(DcMotorSimple.Direction.FORWARD);
+
+//            servo.setPower(-1);
         }
     }
 
