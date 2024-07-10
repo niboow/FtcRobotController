@@ -5,6 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
+
 @TeleOp
 public class servo extends LinearOpMode {
     public CRServo servo;
@@ -16,6 +18,9 @@ public class servo extends LinearOpMode {
         if (isStopRequested()) return;
         while(opModeIsActive()){
             servo.setPower(1);
+            //servo.wait(2, 5);
+            servo.setDirection(DcMotorSimple.Direction.REVERSE);
+            servo.setPower(-1);
         }
     }
 
