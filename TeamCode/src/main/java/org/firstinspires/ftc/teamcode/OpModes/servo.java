@@ -10,6 +10,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 @TeleOp
 public class servo extends LinearOpMode {
     public CRServo servo;
+    private long start;
     @Override
     public void runOpMode() throws InterruptedException {
         servo = hardwareMap.get(CRServo.class, "test");
@@ -27,6 +28,20 @@ public class servo extends LinearOpMode {
 
 //            servo.setPower(-1);
         }
+    }
+
+    public void pause (double milliseconds) {
+        start = System.currentTimeMillis();
+        while (System.currentTimeMillis() - start < milliseconds && opModeIsActive()) {
+            servo.update();
+        }
+    }
+
+    public void update() {
+        START_LOOP();
+        Globals.gotBloodyAnnihilated = System.currentTimeMillis() - Globals.autoStartTime > 29500 && Globals.autoStartTime != -1 && deposit.slides.length > 1;
+        updateSubsystems();
+        updateTelemetry();
     }
 
     //testing everytioasdfkhasdf
