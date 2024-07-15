@@ -14,28 +14,47 @@ public class servo extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         servo = hardwareMap.get(CRServo.class, "test");
+        DcMotor frontLeftMotor = hardwareMap.dcMotor.get("frontLeftMotor");
+        DcMotor testMotor = hardwareMap.dcMotor.get("testMotor");
+        DcMotor poopMotor = hardwareMap.dcMotor.get("poopMotor");
+
         servo.setDirection(DcMotorSimple.Direction.REVERSE);
         waitForStart();
         if (isStopRequested()) return;
         while(opModeIsActive()){
-            double i = System.currentTimeMillis();
-            while (i < 1000 ) {
-                servo.setPower(0.5);
-            }
-            pause(500);
-            System.out.println(i);
-            servo.setDirection(DcMotorSimple.Direction.FORWARD);
-            while (System.currentTimeMillis() < 1000 ) {
-                servo.setPower(0.5);
-            }
+           // servo.setPower(0.5);
+            frontLeftMotor.setPower(0.1);
+            testMotor.setPower(0.1);
+            poopMotor.setPower(0.1);
+
+
+//            double time_curr = System.currentTimeMillis();
+//            double time_new = 0;
+//            while(time_curr < )
+
+           // servo.setDirection(DcMotorSimple.Direction.FORWARD);
+
+//            servo.setPower(-1);
         }
     }
 
-    public void pause (double milliseconds) {
-        start = System.currentTimeMillis();
-        while (System.currentTimeMillis() - start < milliseconds && opModeIsActive()) {
-            servo.setPower(0);
-        }
-    }
+//    public void pause (double milliseconds) {
+//        start = System.currentTimeMillis();
+//        while (System.currentTimeMillis() - start < milliseconds && opModeIsActive()) {
+//            servo.update();
+//        }
+//    }
+//
+//    public void update() {
+//        START_LOOP();
+//        Globals.gotBloodyAnnihilated = System.currentTimeMillis() - Globals.autoStartTime > 29500 && Globals.autoStartTime != -1 && deposit.slides.length > 1;
+//        updateSubsystems();
+//        updateTelemetry();
+//    }
 
+    //testing everytioasdfkhasdf
+    //testing push
+    //testing push clone
+
+    //pw xie1017
 }
